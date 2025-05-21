@@ -15,22 +15,22 @@ const PAGES = [
   },
   {
     path: '/morphology',
-    title: 'Зовнішній вигляд зайців',
+    title: 'Зовнішній вигляд пум',
     component: Morphology
   },
   {
     path: '/nutrition',
-    title: 'Харчування зайців',
+    title: 'Харчування пум',
     component: Nutrition
   },
   {
     path: '/population',
-    title: 'Ареал зайців',
+    title: 'Ареал пум',
     component: Population
   },
   {
     path: '/photo',
-    title: 'Фотографії зайців',
+    title: 'Фотографії пум',
     component: Photo
   }
 ];
