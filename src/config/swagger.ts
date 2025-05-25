@@ -4,9 +4,9 @@ export const swaggerSpec = {
     openapi: '3.0.0',
     // Загальна інформація про API
     info: {
-        title: 'API Сайту про Зайців',
+        title: 'API Сайту про Пум',
         version: '1.0.0',
-        description: 'Документація API для Сайту про Зайців',
+        description: 'Документація API для Сайту про Пум',
     },
     // Налаштування серверів для тестування API
     servers: [
@@ -20,18 +20,18 @@ export const swaggerSpec = {
     ],
     // Визначення кінцевих точок (endpoints) REST API та операцій з ними
     paths: {
-        '/api/rabbits': {
-            // GET запит для отримання всіх зайців
+        '/api/pumas': {
+            // GET запит для отримання всіх пум
             get: {
-                summary: 'Отримати всіх зайців',
+                summary: 'Отримати всіх пум',
                 responses: {
                     '200': {
-                        description: 'Список всіх зайців',
+                        description: 'Список всіх пум',
                         content: {
                             'application/json': {
                                 schema: {
                                     type: 'array',
-                                    items: { $ref: '#/components/schemas/Rabbit' },
+                                    items: { $ref: '#/components/schemas/Puma' },
                                 },
                             },
                         },
@@ -39,23 +39,23 @@ export const swaggerSpec = {
                 },
             },
 
-            // POST запит для створення нового зайця
+            // POST запит для створення нової пуми
             post: {
-                summary: 'Створити нового зайця',
+                summary: 'Створити нову пуму',
                 requestBody: {
                     required: true,
                     content: {
                         'application/json': {
-                            schema: { $ref: '#/components/schemas/Rabbit' },
+                            schema: { $ref: '#/components/schemas/Puma' },
                         },
                     },
                 },
                 responses: {
                     '201': {
-                        description: "Створений об'єкт зайця",
+                        description: "Створений об'єкт пуми",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Puma' },
                             },
                         },
                     },
@@ -63,112 +63,114 @@ export const swaggerSpec = {
             },
         },
 
-        // Операції для конкретного зайця за ID
-        '/api/rabbits/{id}': {
-            // GET запит для отримання зайця за ID
+        // Операції для конкретної пуми за ID
+        '/api/pumas/{id}': {
+            // GET запит для отримання пуми за ID
             get: {
-                summary: 'Отримати зайця за ID',
+                summary: 'Отримати пуму за ID',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID пуми',
                     },
                 ],
                 responses: {
                     '200': {
-                        description: "Об'єкт зайця",
+                        description: "Об'єкт пуми",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Puma' },
                             },
                         },
                     },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Пуму не знайдено' },
                 },
             },
 
-            // PUT запит для повного оновлення зайця за ID
+            // PUT запит для повного оновлення пуми за ID
             put: {
-                summary: 'Повністю оновити зайця',
+                summary: 'Повністю оновити пуму',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID пуми',
                     },
                 ],
                 requestBody: {
                     required: true,
                     content: {
                         'application/json': {
-                            schema: { $ref: '#/components/schemas/Rabbit' },
+                            schema: { $ref: '#/components/schemas/Puma' },
                         },
                     },
                 },
                 responses: {
                     '200': {
-                        description: "Оновлений об'єкт зайця",
+                        description: "Оновлений об'єкт пуми",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Puma' },
                             },
                         },
                     },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Пуму не знайдено' },
                 },
             },
-            // PATCH запит для часткового оновлення зайця за ID
+
+            // PATCH запит для часткового оновлення пуми за ID
             patch: {
-                summary: 'Частково оновити зайця',
+                summary: 'Частково оновити пуму',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID пуми',
                     },
                 ],
                 requestBody: {
                     required: true,
                     content: {
                         'application/json': {
-                            schema: { $ref: '#/components/schemas/Rabbit' },
+                            schema: { $ref: '#/components/schemas/Puma' },
                         },
                     },
                 },
                 responses: {
                     '200': {
-                        description: "Оновлений об'єкт зайця",
+                        description: "Оновлений об'єкт пуми",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Puma' },
                             },
                         },
                     },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Пуму не знайдено' },
                 },
             },
-            // DELETE запит для видалення даних про зайця за ID
+
+            // DELETE запит для видалення даних про пуму за ID
             delete: {
-                summary: 'Видалити дані про зайця',
+                summary: 'Видалити дані про пуму',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID пуми',
                     },
                 ],
                 responses: {
                     '200': { description: 'Повідомлення про успішне видалення' },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Пуму не знайдено' },
                 },
             },
         },
@@ -178,35 +180,35 @@ export const swaggerSpec = {
     components: {
         // Схеми даних
         schemas: {
-            // Схема об'єкта Заєць
-            Rabbit: {
+            // Схема об'єкта Пума
+            Puma: {
                 type: 'object',
                 required: ['name', 'age', 'height', 'weight', 'gender'],
                 properties: {
                     name: {
                         type: 'string',
-                        description: "Ім'я зайця",
+                        description: "Ім'я пуми",
                     },
                     age: {
                         type: 'number',
-                        description: 'Вік зайця у роках',
+                        description: 'Вік пуми у роках',
                     },
                     height: {
                         type: 'number',
-                        description: 'Висота зайця в сантиметрах',
+                        description: 'Висота пуми в сантиметрах',
                     },
                     weight: {
                         type: 'number',
-                        description: 'Вага зайця в кілограмах',
+                        description: 'Вага пуми в кілограмах',
                     },
                     gender: {
                         type: 'string',
                         enum: ['male', 'female'],
-                        description: 'Стать зайця',
+                        description: 'Стать пуми',
                     },
                     description: {
                         type: 'string',
-                        description: "Опис зайця (необов'язкове поле)",
+                        description: "Опис пуми (необов'язкове поле)",
                     },
                 },
             },
